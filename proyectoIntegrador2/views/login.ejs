@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('./partials/head') %> 
+
+<body>
+	<!-- Header -->
+	<%- include('./partials/header') %> 
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title"><strong>Ingresar</strong></h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<h2 class="col-12"> <i> <br> <br>
+				<form action="/users/loguear" method="get">
+					<input name="usuario" type="text" placeholder="usuario">
+					<input name="contraseña" type="password" placeholder="contraseña">
+					<label>Recordar mi perfil</label>
+					<input name="recordame" type="checkbox" value="recordame"> 
+					<input type="submit" value="ingresar">
+				</form>
+		
+			<p>
+				<% if(registro) {%>
+					registrado, logueate
+				<% } %> 	
+			</p>
+			<p>
+				<% if(error) {%>
+					<%=error %> 
+				<% } %> 	
+			</p>
+			</h2>
+		</div>
+	</div>
+
+	<!-- footer -->
+		<%- include('./partials/footer') %> 
+	<!-- /footer -->
+</body>
+
+</html>

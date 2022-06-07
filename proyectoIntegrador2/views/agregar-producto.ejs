@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('./partials/head') %> 
+
+<body>
+	<!-- Header -->
+	<%- include('./partials/headerLogueado') %> 
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Agregar productos</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<form action="">
+				<input type="text" placeholder="nombre">
+				<input type="text" placeholder="apellido">
+				<input type="number" min="18" max="50" placeholder="edad">
+				<input type="date" placeholder="nacimiento">
+				<input type="text" placeholder="nacionalidad">
+				<input type="text" placeholder="club">
+				<input type="text" placeholder="posicion">
+				<input type="text" placeholder="trayectoria">
+				<input type="text" placeholder="fisico">
+				<input type="text" placeholder="valor de Mercado">
+				<input type="submit" value="guardar">
+			</form>
+
+	<!-- footer -->
+	<%- include('./partials/footer') %> 
+	<!-- /footer -->
+</body>
+
+</html>

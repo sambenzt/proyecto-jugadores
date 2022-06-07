@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('./partials/head') %> 
+
+<body>
+	<!-- Header -->
+	<%- include('./partials/header') %> 
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title"><strong>Registrate</strong></h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<h2 class="col-12"> <i> <br> <br>
+				<form action="/users/registrar" method="post">
+					<input required name="nombre" type="text" placeholder="nombre">
+					<input required name="apellido" type="text" placeholder="apellido">
+					<input required name="usuario" type="text" placeholder="usuario">
+					<input required name="email" type="email" placeholder="email">
+					<input required name="contrasena" type="password" placeholder="contraseña">
+					<input required name="dni" type="number" placeholder="nro de documento">
+					<input required name="fecha_nacimiento" type="date" placeholder="fecha de nacimiento">
+					<input name="foto" type="file">
+					<input type="submit">
+				</form>
+				<p>
+					<% if(error) {%>
+						el usuario ya existe
+					<% } %> 	
+				</p>
+			</h2>
+
+
+	<!-- footer -->
+	<%- include('./partials/footer') %> 
+	<!-- /footer -->
+</body>
+
+</html>

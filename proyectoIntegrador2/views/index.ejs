@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('./partials/head') %> 
+<body>
+	<!-- Header -->
+	<%- include('./partials/header') %>
+	<!-- /Header -->
+	
+	<!-- Banner -->
+	<%- include('./partials/banner') %>
+	<!-- /Banner -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title"> <strong>Jugadores </strong> </h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<% for(let i = 0; i<jugadores.length; i++) { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/productos/detalle/<%= jugadores[i].id %>">
+							<figure class="product-box_image">
+								<img src="<%= jugadores[i].imagen %> " alt="jugadores">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= jugadores[i].nombre %> <%= jugadores[i].apellido %></h2>
+								<p><ul>
+									<li>
+										<strong>Club:</strong><%= jugadores[i].club %> 
+									</li>
+									<li>
+										<strong>Posicion:</strong><%= jugadores[i].posicion %> 
+									</li>
+									<li>
+										<strong>Valor De Mercado:</strong><%= jugadores[i].valorDeMercado%> 
+									</li>
+								</ul></p>
+								<p>Comentarios: 5 </p>
+							</article>
+						</a>
+					</section>
+				</div>
+			<% } %>
+        
+			
+		
+	<!-- /Novedades -->
+	<!-- Más comentados -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title"><strong>Más buscados</strong></h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<% for(let i = 0; i< 4; i++) { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/productos/detalle/<%= jugadores[i].id %>">
+							<figure class="product-box_image">
+								<img src="<%= jugadores[i].imagen %> " alt="cafetera moulinex">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= jugadores[i].nombre %> <%= jugadores[i].apellido %></h2>
+								<p><ul>
+									<li>
+										<strong>Club:</strong><%= jugadores[i].club %> 
+									</li>
+									<li>
+										<strong>Posicion:</strong><%= jugadores[i].posicion %> 
+									</li>
+									<li>
+										<strong>Valor De Mercado:</strong><%= jugadores[i].valorDeMercado%> 
+									</li>
+								</ul></p>
+								<p>Comentarios: 5 </p>
+							</article>
+						</a>
+					</section>
+				</div>
+			<% } %>
+        
+		</div>
+	</div>
+	<!-- /Más comentados -->
+
+
+	<!-- footer -->
+	<%- include('./partials/footer') %> 
+	
+	<!-- /footer -->
+</body>	
+</html>
