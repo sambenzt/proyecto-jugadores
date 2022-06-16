@@ -1,8 +1,8 @@
 //para que en los controladores podamos usar la info de db hayq ue hacer una variable que use lo de db
-const db = require('../database/models')
-//const jugador = db.Player //alias
-
-
+const db = require('../database/models');
+const Player = db.Player;
+const User = db.User;
+const op = db.Sequelize.Op;
 
 
 const jugadores = require ('../db/jugadores'); //para que pueda retornar la lista de jugadores que esta en la carpeta de jugadores en db
@@ -42,12 +42,11 @@ const productoController = {
         let comentario;
 
         for(let i=0; i<comentarios.lista.length; i++){
+        {
+            
+            comentario = comentarios.lista[i];
 
-            {
-                
-                comentario = comentarios.lista[i];
-
-            }
+        }
         }
          //reo que hay quw hacer uno de cometariox
 
@@ -56,9 +55,22 @@ const productoController = {
     
     busquedaProducto: function(req,res){
 
-   
+        const search = req.query.search;
 
-        res.render('buscar-resultados'); 
+        Player.findAll({
+            include: {model: User },
+            where: {
+                [op.or]: [
+                    {nombre: { [op.like]: `%${ search }%` }},
+                    {descripcion: { [op.like]: `%${ search }%` }},
+                ]
+            }
+        })
+        .then(data => {
+            res.render('buscar-resultados', {jugadores:data}); 
+        })
+
+       
     }
    
 }
